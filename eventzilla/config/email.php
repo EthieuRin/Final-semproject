@@ -27,7 +27,7 @@ class EmailService {
         // Check if PHPMailer is available
         if (!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
             // For development, we'll use a simple mail function
-            // In production, you should install PHPMailer via Composer
+             
             return;
         }
         
