@@ -15,13 +15,13 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'lowengel10@gmail.com'; // your Gmail
-    $mail->Password   = 'alnd qqjf tilc pgqk';    // App password from Google
+    $mail->Username   = 'lowengel10@gmail.com'; 
+    $mail->Password   = 'alnd qqjf tilc pgqk';    
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     $mail->setFrom('lowengel10@gmail.com', 'Event Zilla');
-    $mail->addAddress('lowennaahumuza@gmail.com'); // test with your other email
+    $mail->addAddress('lowennaahumuza@gmail.com'); // testing with your other email
 
     $mail->isHTML(true);
     $mail->Subject = 'Test Email from PHPMailer';
