@@ -29,7 +29,7 @@ Project Info
 - Year: 2025  
 
 - Group Members:
-  1. 167409 Katama, David Michael.
+  1. 167409 Katama, David William Michael.
   2. 167044 Kyarua, Wesley Ralph.
   3. 153112 Ethieu Rin.
   4. 191339 Ahumuza Lowena.
