@@ -8,6 +8,7 @@ class EmailConfig {
     const SMTP_PASSWORD = 'alnd qqjf tilc pgqk'; 
     const SMTP_ENCRYPTION = 'tls';
     
+    
     // Email settings
     const FROM_EMAIL = 'noreply@eventzilla.com';
     const FROM_NAME = 'Eventzilla';

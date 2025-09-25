@@ -2,7 +2,8 @@
 CREATE DATABASE eventzilla;
 USE eventzilla;
 
--- 1. Users Table
+
+-- 1.The Users Table
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
