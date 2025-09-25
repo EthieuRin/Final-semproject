@@ -24,11 +24,11 @@ It highlights:
 - Group project teamwork in software development  
 
 Project Info
-- Course: Application Programming in the Internet  
+- Course: Application Programming on the Internet  
 - Institution: Strathmore University  
 - Year: 2025  
 
-- Group Memvbers:
+- Group Members:
   1. 167409 Katama, David Michael.
   2. 167044 Kyarua, Wesley Ralph.
   3. 153112 Ethieu Rin.
