@@ -12,6 +12,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 -- 2. Events Table
 CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
