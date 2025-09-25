@@ -1,4 +1,7 @@
 <?php
+// Load Composer autoloader
+require_once __DIR__ . '/../vendor/autoload.php';
+
 // Email configuration
 class EmailConfig {
     // SMTP Configuration
