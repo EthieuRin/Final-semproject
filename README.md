@@ -13,7 +13,7 @@ Where It provides a simple and interactive platform that makes event management 
 - Event creation and management  
 - Online event registration  
 - Email notifications for event confirmations  
-- Modern, responsive design with smooth transitions and animations  
+- Modern, responsive design with smooth transitions and animations.  
 
 Purpose
 This project demonstrates how web applications can be built to solve real-world problems.  
