@@ -13,7 +13,11 @@ Where It provides a simple and interactive platform that makes event management 
 - Event creation and management  
 - Online event registration  
 - Email notifications for event confirmations  
+<<<<<<< HEAD
 - Modern, responsive design with smooth transitions and animations.  
+=======
+- Modern, responsive design with smooth transitions and animations  
+>>>>>>> 469b3a352a5281954ad279098dbed81dbf6e39e8
 
 Purpose
 This project demonstrates how web applications can be built to solve real-world problems.  
@@ -29,7 +33,11 @@ Project Info
 - Year: 2025  
 
 - Group Members:
+<<<<<<< HEAD
   1. 167409 Katama, David W Michael.
+=======
+  1. 167409 Katama, David Michael.
+>>>>>>> 469b3a352a5281954ad279098dbed81dbf6e39e8
   2. 167044 Kyarua, Wesley Ralph.
   3. 153112 Ethieu Rin.
   4. 191339 Ahumuza Lowena.
