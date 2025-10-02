@@ -3,12 +3,17 @@ class Database {
     private $db_path;
     private $conn;
 
+<<<<<<< HEAD
+    
+=======
     public function __construct() {
         $this->db_path = __DIR__ . '/../eventzilla.db';
     }
 
+>>>>>>> 469b3a352a5281954ad279098dbed81dbf6e39e8
     public function getConnection() {
         $this->conn = null;
+        
         
         try {
             $this->conn = new PDO("sqlite:" . $this->db_path);

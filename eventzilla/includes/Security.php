@@ -347,8 +347,7 @@ class Validator {
         return $this->data;
     }
     
-    public function get($field, $default = null) {
-        return $this->data[$field] ?? $default;
+   
     }
-}
+
 ?>

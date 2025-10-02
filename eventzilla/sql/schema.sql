@@ -1,61 +1,52 @@
--- Create database
-CREATE DATABASE IF NOT EXISTS eventzilla;
+-- Create Database
+CREATE DATABASE eventzilla;
 USE eventzilla;
 
--- Users table
-CREATE TABLE IF NOT EXISTS users (
+
+-- 1.The Users Table
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    phone VARCHAR(15),
-    profile_image VARCHAR(255),
-    email_verified BOOLEAN DEFAULT FALSE,
-    verification_token VARCHAR(100),
-    reset_token VARCHAR(100),
-    reset_token_expires TIMESTAMP NULL,
-    status ENUM('active', 'inactive', 'suspended') DEFAULT 'inactive',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Events table (for future use)
-CREATE TABLE IF NOT EXISTS events (
+
+-- 2. Events Table
+CREATE TABLE events (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     title VARCHAR(200) NOT NULL,
     description TEXT,
     start_date DATETIME NOT NULL,
     end_date DATETIME NOT NULL,
-    location VARCHAR(200),
+    location VARCHAR(255),
+    event_image VARCHAR(255),  -- stores path to uploaded image
     max_attendees INT DEFAULT 0,
-    price DECIMAL(10, 2) DEFAULT 0.00,
-    status ENUM('draft', 'published', 'cancelled') DEFAULT 'draft',
+    price DECIMAL(10,2) DEFAULT 0.00,
+    status ENUM('draft','published','cancelled') DEFAULT 'draft',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Event registrations table (for future use)
-CREATE TABLE IF NOT EXISTS event_registrations (
+-- 3. Event Registrations Table
+CREATE TABLE event_registrations (
     id INT AUTO_INCREMENT PRIMARY KEY,
     event_id INT NOT NULL,
     user_id INT NOT NULL,
-    registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    status ENUM('registered', 'cancelled') DEFAULT 'registered',
+    registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_registration (event_id, user_id),
     FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    UNIQUE KEY unique_registration (event_id, user_id)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- Sessions table for user sessions
-CREATE TABLE IF NOT EXISTS user_sessions (
+-- 4. Email Verification Table
+CREATE TABLE email_verification (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    session_token VARCHAR(128) NOT NULL,
-    expires_at TIMESTAMP NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    is_verified TINYINT(1) DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
-    UNIQUE KEY unique_session (session_token)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
