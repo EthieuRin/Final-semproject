@@ -4,12 +4,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // Email configuration
 class EmailConfig {
-    // SMTP Configuration
-    const SMTP_HOST = 'smtp.gmail.com';
-    const SMTP_PORT = 587;
-    const SMTP_USERNAME = 'lowengel10@gmail.com'; 
-    const SMTP_PASSWORD = 'alnd qqjf tilc pgqk'; 
-    const SMTP_ENCRYPTION = 'tls';
+    // SMTP Configuration for Mailpit (local development)
+    const SMTP_HOST = '127.0.0.1';
+    const SMTP_PORT = 1025;
+    const SMTP_USERNAME = ''; 
+    const SMTP_PASSWORD = ''; 
+    const SMTP_ENCRYPTION = '';
     
     // Email settings
     const FROM_EMAIL = 'noreply@eventzilla.com';
@@ -45,10 +45,17 @@ class EmailService {
             // Server settings
             $this->mailer->isSMTP();
             $this->mailer->Host       = EmailConfig::SMTP_HOST;
-            $this->mailer->SMTPAuth   = true;
-            $this->mailer->Username   = EmailConfig::SMTP_USERNAME;
-            $this->mailer->Password   = EmailConfig::SMTP_PASSWORD;
-            $this->mailer->SMTPSecure = EmailConfig::SMTP_ENCRYPTION;
+            $this->mailer->SMTPAuth   = !empty(EmailConfig::SMTP_USERNAME);
+            
+            if (!empty(EmailConfig::SMTP_USERNAME)) {
+                $this->mailer->Username = EmailConfig::SMTP_USERNAME;
+                $this->mailer->Password = EmailConfig::SMTP_PASSWORD;
+            }
+            
+            if (!empty(EmailConfig::SMTP_ENCRYPTION)) {
+                $this->mailer->SMTPSecure = EmailConfig::SMTP_ENCRYPTION;
+            }
+            
             $this->mailer->Port       = EmailConfig::SMTP_PORT;
             
             // Default sender
