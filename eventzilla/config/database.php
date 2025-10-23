@@ -3,7 +3,7 @@ class Database {
     private $db_path;
     private $conn;
 
-<<<<<<< HEAD
+<<<<<<< HEA
     
 =======
     public function __construct() {
