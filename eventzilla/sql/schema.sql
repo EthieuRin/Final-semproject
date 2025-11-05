@@ -50,3 +50,20 @@ CREATE TABLE email_verification (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+-- Add a 'role' column to the 'users' table
+ALTER TABLE users
+ADD COLUMN role ENUM('buyer', 'host') NOT NULL DEFAULT 'buyer';
+
+CREATE TABLE payments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    event_id INT NOT NULL,
+    user_id INT NOT NULL,
+    mpesa_receipt_number VARCHAR(50) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    payment_status ENUM('Pending', 'Completed', 'Failed') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

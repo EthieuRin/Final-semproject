@@ -140,23 +140,25 @@ $result = $conn->query("SELECT * FROM events WHERE status = 'published' ORDER BY
 <div class="events-container">
     <h1 class="headline">Discover Amazing Events</h1>
     <?php if ($result->num_rows > 0): ?>
-        <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="event-card">
-                <div class="event-hero" style="background-image: url('data:image/jpeg;base64,<?php echo base64_encode($row['event_image']); ?>');">
-                </div>
-                <div class="event-info">
-                    <h2 class="event-name"><?php echo htmlspecialchars($row['title']); ?></h2>
-                    <p class="tagline"><strong>Description:</strong> <?php echo htmlspecialchars($row['description']); ?></p>
-                    <p class="tagline"><strong>Start Date:</strong> <?php echo htmlspecialchars($row['start_date']); ?></p>
-                    <p class="tagline"><strong>End Date:</strong> <?php echo htmlspecialchars($row['end_date']); ?></p>
-                    <p class="tagline"><strong>Location:</strong> <?php echo htmlspecialchars($row['location']); ?></p>
-                    <div class="price-buy-container">
-                        <p class="price"><?php echo htmlspecialchars($row['price']); ?> KSH</p>
-                        <button class="buy-btn">Buy Ticket</button>
+        <div class="event-row">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="event-card">
+                    <div class="event-hero" style="background-image: url('data:image/jpeg;base64,<?php echo base64_encode($row['event_image']); ?>');">
+                    </div>
+                    <div class="event-info">
+                        <h2 class="event-name"><?php echo htmlspecialchars($row['title']); ?></h2>
+                        <p class="tagline"><strong>Description:</strong> <?php echo htmlspecialchars($row['description']); ?></p>
+                        <p class="tagline"><strong>Start Date:</strong> <?php echo htmlspecialchars($row['start_date']); ?></p>
+                        <p class="tagline"><strong>End Date:</strong> <?php echo htmlspecialchars($row['end_date']); ?></p>
+                        <p class="tagline"><strong>Location:</strong> <?php echo htmlspecialchars($row['location']); ?></p>
+                        <div class="price-buy-container">
+                            <p class="price"><?php echo htmlspecialchars($row['price']); ?> KSH</p>
+                            <a href="checkout.php?event_id=<?php echo $row['id']; ?>" class="buy-btn">Buy Ticket</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <?php endwhile; ?>
+            <?php endwhile; ?>
+        </div>
     <?php else: ?>
         <p>No events available at the moment.</p>
     <?php endif; ?>

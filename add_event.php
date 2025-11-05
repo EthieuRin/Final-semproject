@@ -48,6 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="dashboard.php">Back to Dashboard</a></li>
+        <li><a href="index.php">View Events</a></li>
+    </ul>
+</nav>
 <div class="form-container">
     <h2>Add New Event</h2>
     <?php if ($message != "") echo "<p class='alert'>$message</p>"; ?>
