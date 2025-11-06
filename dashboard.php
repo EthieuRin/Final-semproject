@@ -77,7 +77,7 @@ $result = $conn->query("SELECT * FROM events WHERE user_id = $user_id ORDER BY s
 <body>
 <nav>
     <ul>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="index.php">View Events</a></li>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="logout.php">Logout</a></li>
